@@ -1,0 +1,16 @@
+.elements {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.elements_inner {
+  display: flex;
+  margin: 0 10px;
+}
+.elements_inner_left {
+  margin: 0 10px
+}
+.elements_inner_right {
+  margin: 0 10px;
+  border-bottom: 1px solid #7CC832;
+}

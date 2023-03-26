@@ -1,0 +1,49 @@
+.hero_wrapper {
+  background-image: url(../../assets/img/bg.png);
+  background-size: cover;
+  height: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.hero {
+  width: 80%;
+  height: 530px;
+  display: flex;
+  justify-content: center;
+}
+.hero_right {
+  width: 50%;
+}
+
+.hero_left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero_left h3 {
+  color: white;
+  z-index: 1;
+  font-size: 25px;
+}
+.hero_left p {
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+}
+.hero_left button {
+  z-index: 1;
+  color: white;
+  background: #ff0000;
+  border-radius: 50px;
+  border: none;
+  padding: 20px 25px;
+  max-width: 200px;
+  font-size: 22px;
+  margin: 15px 0;
+}
+.hero_left button:hover {
+  background: #7CC832;
+  transition: 0.5s;
+}

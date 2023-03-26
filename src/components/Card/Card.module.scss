@@ -1,0 +1,38 @@
+.card {
+  max-width: 400px;
+  border-radius: 30px;
+  background: #FF0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+}
+
+.card_left  {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.card_right {
+  width: 50%;
+}
+.card_right h4 {
+  color: white;
+}
+
+.card_right span {
+  color: white;
+}
+.card_right button {
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  background: #7CC832;
+  border-radius: 20px;
+  margin-top: 10px;
+  transition: 0.4s; /* Время эффекта */
+}
+.card_right button:hover {
+  transform: scale(1.2); /* Увеличиваем масштаб */
+}

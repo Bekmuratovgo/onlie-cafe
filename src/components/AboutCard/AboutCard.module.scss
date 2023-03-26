@@ -1,0 +1,23 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 40px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #F2F9EA;
+  margin: 20px;
+}
+.about img {
+  
+}
+.about h4 {
+  color: black;
+  
+}
+.about p {
+  color: #7CC832;
+  text-align: center;
+}
