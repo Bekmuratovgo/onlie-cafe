@@ -4,35 +4,15 @@ import Categories from '../Categories/Categories';
 import Card from '../Card/Card';
 import styles from './Menu.module.scss';
 
-export default function Menu() {
+export default function Menu({ data }) {
   const [currentCategory, setCurrentCategory] = useState();
 
-  const cards = [
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-    {
-      title: 'Суши весла',
-      description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
-    },
-  ]
+  // const cards = [
+  //   {
+  //     title: 'Суши весла',
+  //     description: 'Кроме классичеких ролл, у нас есть фирменные, запеченные, кингроллы, хот роллы.'
+  //   },
+  // ]
   const handleClickCallback = (item) => {
     setCurrentCategory(item);
   }
@@ -47,10 +27,10 @@ export default function Menu() {
       </div>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {cards.map((card, index) => (
+        {data?.results?.map((card, index) => (
           <Card 
             item={card} 
-            key={index + card.title}
+            key={index + card.name}
           />
         ))}
       </div>

@@ -5,15 +5,15 @@ import Image from "next/image";
 import img from '../../assets/img/basket.png';
 import styles from './Navbar.module.scss';
 
-export default function Header() {
+export default function Header({ handleOpenBasket }) {
   const [isActive, setIsActive] = useState(false);
 
-  const handlePress =(index) => {
+  const handlePress = (index) => {
     setIsActive((prev) => index);
     console.log('ASD');
   }
 
-  const navItems = ['Меню','О нас','Доставка и Оплата','Контакты',]
+  const navItems = ['Меню', 'О нас', 'Доставка и Оплата', 'Контакты',]
   return (
     <div className={styles.navbar}>
       <Navbar className={styles.navbar__inner}>
@@ -32,33 +32,35 @@ export default function Header() {
                 ${styles.navbar__inner_item}
                 ${isActive === index ? styles.navbar__inner_item_active : ''}`
               }
-              onClick={() => handlePress(index)} 
+              onClick={() => handlePress(index)}
               key={index + item}
               href="#"
             >
               {item}
             </Link>
           ))}
-          
           <Link
-            className={
-              `${styles.navbar__inner_item} 
-              ${isActive === 'basket' ? styles.navbar__inner_item_active : ''}`
-            } 
-            onClick={() => handlePress('basket')} 
-            href="#"
-          >
-            Basket
-          </Link>
-          <Link 
             className={`
               ${styles.navbar__inner_item}`
             }
             href="tel:+79998887766"
-            onClick={() => handlePress('number')} 
+            onClick={() => handlePress('number')}
           >
             +
             996(555)56-54-45
+          </Link>
+          <Link
+            className={`${styles.navbar__inner_item}`}
+            onClick={() => handleOpenBasket('basket')}
+            href="#"
+          >
+            <Image
+              src={img}
+              alt="img"
+              width={50}
+              height={50}
+            />
+            <button>100</button>
           </Link>
         </Navbar.Content>
       </Navbar>

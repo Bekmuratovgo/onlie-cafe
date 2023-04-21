@@ -10,6 +10,7 @@
 }
 .deliver_left img {
   border-radius: 10px;
+  width: 100%;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 10px 50px 0px;
 }
@@ -48,4 +49,8 @@
     color: white;
     border-radius: 25px;
     font-size: 20px;
+    transition: 0.4s;
+  }
+  .deliver_right_inner_btns button:hover {
+    transform: scale(1.2);
   }

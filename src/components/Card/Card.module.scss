@@ -20,6 +20,10 @@
 .card_right h4 {
   color: white;
 }
+.card_right h5 {
+  margin: 10px 0;
+  color: white;
+}
 
 .card_right span {
   color: white;
@@ -31,8 +35,8 @@
   background: #7CC832;
   border-radius: 20px;
   margin-top: 10px;
-  transition: 0.4s; /* Время эффекта */
+  transition: 0.4s;
 }
 .card_right button:hover {
-  transform: scale(1.2); /* Увеличиваем масштаб */
+  transform: scale(1.2);
 }
