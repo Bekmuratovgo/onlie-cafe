@@ -7,7 +7,7 @@ import styles from './Categories.module.scss';
 export default function Categories({handleClickCallback}) {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.food);
-  console.log(categories, 'categories');
+
   useEffect(() => {
     dispatch(getCategories());
   }, []);
@@ -20,7 +20,7 @@ export default function Categories({handleClickCallback}) {
           className={styles.category_btn} 
           auto rounded bordered 
           color="error"
-          onClick={() => handleClickCallback(item)}
+          onPress={() => handleClickCallback(item)}
         >
           {item.name}
         </Button>

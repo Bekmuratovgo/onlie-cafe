@@ -5,7 +5,7 @@ import styles from './AboutUs.module.scss';
 
 export default function AboutUs() {
   return (
-    <div className={styles.about}>
+    <div id='about' className={styles.about}>
       <Title text={'О компании'} linedText={'Олигарх'} />
       <div className={styles.about_inner}>
         <AboutCard />

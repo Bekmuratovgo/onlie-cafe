@@ -5,15 +5,33 @@ import Image from "next/image";
 import img from '../../assets/img/basket.png';
 import styles from './Navbar.module.scss';
 
-export default function Header({ handleOpenBasket }) {
+export default function Header({ handleOpenBasket, disabled }) {
   const [isActive, setIsActive] = useState(false);
 
   const handlePress = (index) => {
-    setIsActive((prev) => index);
-    console.log('ASD');
+    if (!disabled) {
+      setIsActive((prev) => index);
+    }
   }
 
-  const navItems = ['Меню', 'О нас', 'Доставка и Оплата', 'Контакты',]
+  const navItems = [
+    {
+      name: 'Меню',
+      link: 'menu'
+    },
+    {
+      name: 'О нас',
+      link: 'about'
+    },
+    {
+      name: 'Доставка и Оплата',
+      link: 'payment_order'
+    },
+    {
+      name: 'Контакты',
+      link: 'contacts'
+    },
+  ]
   return (
     <div className={styles.navbar}>
       <Navbar className={styles.navbar__inner}>
@@ -34,9 +52,9 @@ export default function Header({ handleOpenBasket }) {
               }
               onClick={() => handlePress(index)}
               key={index + item}
-              href="#"
+              href={'#' + item.link}
             >
-              {item}
+              {item.name}
             </Link>
           ))}
           <Link
@@ -51,14 +69,14 @@ export default function Header({ handleOpenBasket }) {
           </Link>
           <Link
             className={`${styles.navbar__inner_item}`}
-            onClick={() => handleOpenBasket('basket')}
+            onClick={() => !disabled && handleOpenBasket('basket')}
             href="#"
           >
             <Image
               src={img}
               alt="img"
               width={50}
-              height={50}
+              height={50}            
             />
             <button>100</button>
           </Link>

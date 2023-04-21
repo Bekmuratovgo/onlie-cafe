@@ -1,14 +1,16 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AboutUs from '@/components/AboutUs/AboutUs';
 import Basket from '@/components/Basket/Basket';
 import Deliver from '@/components/Deliver/Deliver';
 import Elements from '@/components/Elements/Elements';
 import Footer from '@/components/Footer/Footer';
-import Header from '@/components/Header/Header';
 import HeroSection from '@/components/HeroSection/HeroSection';
 import Menu from '@/components/Menu/Menu';
-import { getAllMenu, menu } from '@/store/menu.slice';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { getAllMenu, isTokenRefresh } from '@/store/menu.slice';
+import Header from '@/components/Header/Header';
+import Test from '@/components/Header/Test';
+
 
 import styles from '../styles/home.module.scss'
 
@@ -25,14 +27,15 @@ export default function Home() {
   const handleCloseBasket = () => {
     setIsOpenBasket(false)
   }
-  console.log(menu, 'VAL');
   useEffect(() => {
     dispatch(getAllMenu());
+    dispatch(isTokenRefresh());
   }, [])
 
   return (
     <div className={styles.home}>
-      <Header handleOpenBasket={handleOpenBasket} />
+      {/* <Header handleOpenBasket={handleOpenBasket} /> */}
+      <Test />
       <HeroSection />
       <Basket
         handleOpenBasket={handleOpenBasket}

@@ -4,9 +4,7 @@ import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    console.log(ctx, 'ctx');
     const initialProps = await Document.getInitialProps(ctx);
-    console.log(initialProps, 'initialProps');
     return {
       ...initialProps,
       styles: React.Children.toArray([initialProps.styles])

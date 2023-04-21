@@ -3,7 +3,6 @@ import img from '../../assets/img/food.png';
 import Image from 'next/image';
 
 export default function FoodCard({ item }) {
-  console.log(item, 'items');
   return (
     <div className={styles.card}>
 
@@ -16,9 +15,9 @@ export default function FoodCard({ item }) {
         />
       </div>
       <div className={styles.card_right}>
-        <h4> {item.title} </h4>
-        <span>{item.description}</span>
-        <h5>{item.price}</h5>
+        <h4> {item?.title} </h4>
+        <span>{item?.description}</span>
+        <h5>{item?.price}</h5>
         <button>Заказать</button>
       </div>
     </div>

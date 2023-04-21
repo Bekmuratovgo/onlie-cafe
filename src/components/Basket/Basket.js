@@ -1,8 +1,11 @@
 import React from "react";
 import { Modal, Button, Text } from "@nextui-org/react";
+import FoodCard from "../Card/Card";
 
 export default function Basket({ visible, handleCloseBasket }) {
+  const order = () => {
 
+  }
   return (
     <Modal
       closeButton
@@ -13,18 +16,14 @@ export default function Basket({ visible, handleCloseBasket }) {
       <Modal.Header>
         <Text id="modal-title" size={18}>
           Ваш заказ
-          {/* <Text b size={18} style>
-            NextUI
-          </Text> */}
         </Text>
       </Modal.Header>
       <Modal.Body>
-
-        dddddd
+        <FoodCard />
       </Modal.Body>
       <Modal.Footer>
-        <Button auto flat color="error" onPress={() => handleCloseBasket(false)}>
-          Close
+        <Button auto flat color="error" onPress={() => order()}>
+          Оформить
         </Button>
       </Modal.Footer>
     </Modal>

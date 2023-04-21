@@ -7,6 +7,9 @@
 .category_btn {
   margin: 10px;
 }
+.category_btn :global(.nextui-button-text) {
+  z-index: 10;
+}
 .category_btn:hover {
   background: #FF0000;
   color: white;

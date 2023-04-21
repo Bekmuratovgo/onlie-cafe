@@ -8,7 +8,9 @@ export default function HeroSection() {
         <div className={styles.hero_left}>
           <h3>ДОСТАВКА ВКУСНЕЙШИХ СУШИ И РОЛЛОВ ИЗ СВЕЖИХ ИНГРЕДИЕНТОВ</h3>
           <p>Каждый должен заниматься в жизни тем, что у него лучше всего получается. Мы вот, например, делаем суши. Лучшие суши</p>
-          <button>Заказать еду</button>
+          <a href='#menu'>
+            <button >Заказать еду</button>
+          </a>
         </div>
         <div className={styles.hero_right}>
 

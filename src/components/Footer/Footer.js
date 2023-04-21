@@ -20,7 +20,7 @@ export default function Footer() {
     },
   ]
   return (
-    <div className={styles.footer_wrapper}>
+    <div id='contacts' className={styles.footer_wrapper}>
       {footerItems.map((item, index) => (
         <div 
           key={item.title + index}
