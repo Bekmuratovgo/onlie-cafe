@@ -9,16 +9,15 @@ import HeroSection from '@/components/HeroSection/HeroSection';
 import Menu from '@/components/Menu/Menu';
 import { getAllMenu, isTokenRefresh } from '@/store/menu.slice';
 import Header from '@/components/Header/Header';
-import Test from '@/components/Header/Test';
-
-
 import styles from '../styles/home.module.scss'
-
+import { v4 as uuidv4 } from 'uuid';
+import EditModal from '@/components/EditModal/EditModal';
 
 export default function Home() {
   const [isOpenBasket, setIsOpenBasket] = useState(false);
   const dispatch = useDispatch();
-  const { menu } = useSelector((state) => state.food);
+  const { menu, toggleEditModal } = useSelector((state) => state.food);
+  const id = uuidv4();
 
   const handleOpenBasket = () => {
     setIsOpenBasket(true)
@@ -34,14 +33,15 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-      {/* <Header handleOpenBasket={handleOpenBasket} /> */}
-      <Test />
+      <Header id={'header' + id} handleOpenBasket={handleOpenBasket} />
       <HeroSection />
       <Basket
         handleOpenBasket={handleOpenBasket}
         handleCloseBasket={handleCloseBasket}
         visible={isOpenBasket}
       />
+      <EditModal data={toggleEditModal} />
+
       <div className={styles.home_wrapper}>
         <div className={styles.home_inner}>
           <Elements />
@@ -55,7 +55,6 @@ export default function Home() {
         <div className={styles.home_inner}>
           <Deliver />
         </div>
-
       </div>
       <Footer />
     </div>

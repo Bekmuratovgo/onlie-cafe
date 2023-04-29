@@ -26,7 +26,7 @@ export default function Elements() {
   return (
     <div className={styles.elements}>
       {elements.map((item, index) => (
-        <div key={index + 'element'} className={styles.elements_inner}>
+        <div key={item.name} className={styles.elements_inner}>
           <div className={styles.elements_inner_left}>
             <Image
               src={item.img}

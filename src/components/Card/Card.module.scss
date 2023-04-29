@@ -3,24 +3,32 @@
   border-radius: 30px;
   background: #FF0000;
   display: flex;
+  flex-direction: column;
+  width: 280px;
   justify-content: center;
   align-items: center;
   margin: 10px;
   padding: 20px;
 }
 
-.card_left  {
-  width: 50%;
+.card_left {
+  width: 80%;
   display: flex;
   justify-content: center;
 }
-.card_right {
-  width: 50%;
+.card_left img {
+  width: auto;
 }
+
+.card_right {
+  width: 80%;
+}
+
 .card_right h4 {
   color: white;
 }
-.card_right h5 {
+
+.card_right h3 {
   margin: 10px 0;
   color: white;
 }
@@ -28,6 +36,7 @@
 .card_right span {
   color: white;
 }
+
 .card_right button {
   border: none;
   padding: 10px 15px;
@@ -37,6 +46,23 @@
   margin-top: 10px;
   transition: 0.4s;
 }
+
 .card_right button:hover {
   transform: scale(1.2);
+}
+
+.editBtn {
+  border: none;
+  background: #0072F5;
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
+
+.icons {
+  margin: 0 5px;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
 }

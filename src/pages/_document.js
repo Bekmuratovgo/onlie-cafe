@@ -13,7 +13,11 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>{CssBaseline.flush()}</Head>
+        <Head>
+          {CssBaseline.flush()}
+          <link rel='icon' href="vercel.svg"/>
+          <title>Онлайн заказ | Доставка еды</title>
+        </Head>
         <body>
           <Main />
           <NextScript />

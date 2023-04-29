@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Footer.module.scss';
 export default function Footer() {
 
@@ -15,18 +16,25 @@ export default function Footer() {
       description: `Политика конфиденциальности Мой аккаунт Корзина`
     },
     {
-      title: '0550 32-32-15 0700 32-32-15',
-      description: ' Г. Бишкек, Кыргызстан Манаса 8/12 (Боконбаева)'
+      title: '0550 32-32-15',
+      description: ' Г. Бишкек, Кыргызстан Манаса 8/12 (Боконбаева)',
+      isNumber: true
     },
   ]
   return (
     <div id='contacts' className={styles.footer_wrapper}>
       {footerItems.map((item, index) => (
         <div 
-          key={item.title + index}
+          key={item.description}
           className={styles.footer_card}
         >
-          <h3>{item.title}</h3>
+          {item.isNumber ? 
+            <h3>
+              <Link style={{color: 'white', textDecoration: 'none'}} href={'tel:' + item.title}>{item.title}</Link>
+            </h3>
+            : 
+            <h3>{item.title}</h3>
+          }
           <span> {item.description} </span>
         </div>
       ))}

@@ -27,9 +27,8 @@ export default function Form() {
   }
 
   const handleLogin = () => {
-    console.log('Login');
-    'username: Chief'
-    'password: foodgood'
+    // 'username: Chief'
+    // 'password: foodgood'
     dispatch(authAdmin(admin));
   }
 
@@ -42,15 +41,15 @@ export default function Form() {
             <h1 className={styles.form_left__title}>Login</h1>
             <div className={styles.block_input}>
               <h5>
-                Email
+                Name
               </h5>
-              <input onChange={(e) => handleChange(e.target.value, e.target.name)} name='username' placeholder='Email' />
+              <input onChange={(e) => handleChange(e.target.value, e.target.name)} name='username' placeholder='Name' />
             </div>
             <div className={styles.block_input}>
               <h5>
                 Password
               </h5>
-              <input onChange={(e) => handleChange(e.target.value, e.target.name)} name='password' placeholder='Email' />
+              <input onChange={(e) => handleChange(e.target.value, e.target.name)} name='password' placeholder='Password' />
             </div>
             <button onClick={() => handleLogin()} disabled={isValid} className={styles.form_login}>
               Войти

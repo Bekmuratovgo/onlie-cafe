@@ -74,3 +74,10 @@
     font-size: 16px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .deliver_right_inner_card {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -4,6 +4,7 @@ import deliverImg from '../../assets/img/deliver.jpg';
 import clock from '../../assets/img/deliverClock.svg';
 import styles from './Deliver.module.scss';
 import Title from '@/kid/title/title';
+import Link from 'next/link';
 
 export default function Deliver() {
   return (
@@ -42,7 +43,9 @@ export default function Deliver() {
             </div>
           </div>
           <div className={styles.deliver_right_inner_btns}>
-            <button>Заказать еду</button>
+            <Link href="#menu">
+              <button>Заказать еду</button>
+            </Link>
           </div>
         </div>
       </div>
