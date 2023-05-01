@@ -16,7 +16,7 @@ import EditModal from '@/components/EditModal/EditModal';
 export default function Home() {
   const [isOpenBasket, setIsOpenBasket] = useState(false);
   const dispatch = useDispatch();
-  const { menu, toggleEditModal } = useSelector((state) => state.food);
+  const { menu, toggleEditModal, basket } = useSelector((state) => state.food);
   const id = uuidv4();
 
   const handleOpenBasket = () => {
@@ -39,6 +39,7 @@ export default function Home() {
         handleOpenBasket={handleOpenBasket}
         handleCloseBasket={handleCloseBasket}
         visible={isOpenBasket}
+        basket={basket}
       />
       <EditModal data={toggleEditModal} />
 

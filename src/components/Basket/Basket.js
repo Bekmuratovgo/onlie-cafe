@@ -1,32 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Text } from "@nextui-org/react";
-import { useSelector } from "react-redux";
 import styles from './Basket.module.scss';
 import Image from "next/image";
-import minus from '../../assets/img/minus.png'
-import plus from '../../assets/img/plus.png'
-import close from '../../assets/img/close.png'
 import { useRouter } from "next/router";
 
-export default function Basket({ visible, handleCloseBasket }) {
-  const { basket } = useSelector((state) => state.food);
-  const [count, setCount] = useState();
+export default function Basket({ visible, handleCloseBasket, basket }) {
+  const [cards, setCards] = useState(basket);
   const router = useRouter();
 
   const order = () => {
-    router.push('/order')
+    router.push('/order');
+    localStorage.setItem('basket', JSON.stringify(cards))
   }
 
   const summOfOrder = (basket) => {
-    return basket.reduce((acc, product) => acc + product.price, 0);
+    if (basket) {
+      return basket.reduce((acc, product) => acc + product.price, 0);
+    }
   }
 
-  const handleMinus = (item) => {
+  const handleChangeCount = (e, id) => {
+    const newArr = cards.map((item, index) => {
+      if (item.id === id) {
+        console.log(item, 'item');
+        return {
+          ...item,
+          count: e.target.value
+        }
+      } else {
+        return item
+      }
+    })
 
+    setCards(newArr);
   }
-
+  const close = () => {
+    localStorage.setItem('basket', JSON.stringify(cards))
+    handleCloseBasket(false);
+  }
+  console.log(cards, 'cards');
+  
   useEffect(() => {
-    setCount(basket)
+    setCards(basket)
   }, [basket])
 
   return (
@@ -34,7 +49,7 @@ export default function Basket({ visible, handleCloseBasket }) {
       closeButton
       aria-labelledby="modal-title"
       open={visible}
-      onClose={() => handleCloseBasket(false)}
+      onClose={() => close()}
       className={styles.test}
       width="80%"
     >
@@ -44,7 +59,7 @@ export default function Basket({ visible, handleCloseBasket }) {
         </Text>
       </Modal.Header>
       <Modal.Body style={{ overflowY: 'scroll' }}>
-        {basket.length ? basket?.map((item, index) => (
+        {cards && cards.length ? cards?.map((item, index) => (
           <div className={styles.card} key={index}>
             <Image className={styles.card_img} width={100} height={100} src={item.image} alt="" />
             <div className={styles.card_wrapper_inner}>
@@ -54,10 +69,11 @@ export default function Basket({ visible, handleCloseBasket }) {
               </div>
               <div className={styles.card__inner} >
                 <div className={styles.card__inner_right}>
-                  {/* <Image width={23} onPress={() => handleMinus(item)} src={minus} alt="" />
-                  <h4>{item.count}</h4>
-                  <Image width={20} onPress={() => handlePlus(item)} src={plus} alt="" /> */}
-                  <input style={{width: '30px'}} type="number" value={17} />
+                  <input 
+                    style={{width: '30px'}} type="number" 
+                    onChange={(e) => handleChangeCount(e, item.id)} 
+                    value={item.count} 
+                  />
                 </div>
               </div>
               <button>
@@ -74,7 +90,7 @@ export default function Basket({ visible, handleCloseBasket }) {
       </Modal.Body>
       <Modal.Footer style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h3>Сумма заказа: <span style={{ color: 'red' }}>{summOfOrder(basket)} сом</span></h3>
-        <Button auto flat color="error" onPress={() => order()}>
+        <Button className={styles} auto flat onPress={() => order()}>
           Оформить
         </Button>
       </Modal.Footer>

@@ -89,7 +89,7 @@ export default function Header({ handleOpenBasket, disabled, anotherPage }) {
           >
             <Notification isOpen={isAddedToBasket} title={"Успешно добавлено!"} duration={1500} />
             <Image className={styles.iconBasket} src={basketIcon} alt="" />
-            <span className={styles.basketCount}>{basket.length}</span>
+            <span className={styles.basketCount}>{basket?.length}</span>
           </div>
         </Navbar.Content>
         <Navbar.Collapse>

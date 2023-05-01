@@ -57,11 +57,14 @@ export const isTokenRefresh = () => async (dispatch) => {
     try {
       const res = await axios.post(api + '/token/refresh/', {refresh: token.refresh});
       dispatch(setToken(res.data))
-      console.log(res, 'REFRESH-TOKEN');
+      console.log(res.data, 'REFRESH-TOKEN');
     } catch (error) {
       localStorage.removeItem('token');
       localStorage.removeItem('basket');
     }
+  } else {
+    localStorage.removeItem('token');
+    localStorage.removeItem('basket');
   }
 }
 
@@ -228,7 +231,7 @@ export const createOrder = (item) => async (dispatch) => {
       return item.count + ' ' + item.title
     })
     console.log(res, 'res-CHECK');
-    const staticText = `Здравствуйте! Мой номер телефона ${996555544554} .Я заказал `
+    const staticText = `Здравствуйте! Мой номер телефона ${res.data.client_phone} .Я заказал `
     const decode = `https://wa.me/${initialState.adminNumber}?text=` + staticText + text;
     console.log(encodeURI(decode), 'decode');
     await dispatch(setOrder(decode))
