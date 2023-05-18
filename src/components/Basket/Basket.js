@@ -22,7 +22,6 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
   const handleChangeCount = (e, id) => {
     const newArr = cards.map((item, index) => {
       if (item.id === id) {
-        console.log(item, 'item');
         return {
           ...item,
           count: e.target.value
@@ -38,7 +37,6 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
     localStorage.setItem('basket', JSON.stringify(cards))
     handleCloseBasket(false);
   }
-  console.log(cards, 'cards');
   
   useEffect(() => {
     setCards(basket)

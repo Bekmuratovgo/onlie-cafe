@@ -21,6 +21,7 @@ export default function Home() {
   const { menu, toggleEditModal, basket } = useSelector((state) => state.food);
   const id = uuidv4();
 
+
   const handleOpenBasket = () => {
     setIsOpenBasket(true)
   }
@@ -39,7 +40,6 @@ export default function Home() {
     dispatch(getAllMenu());
     dispatch(isTokenRefresh());
   }, [])
-  console.log(menu, 'menu');
 
   return (
     <div className={styles.home}>

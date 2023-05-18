@@ -12,6 +12,8 @@ export default function FoodCard({ item, handleEdit, handleDelete }) {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.food);
 
+  // console.log(item)
+
   const handleAddToBasket = (item) => {
     let basket = JSON.parse(localStorage.getItem('basket' || [])) || [];
 
@@ -71,7 +73,7 @@ export default function FoodCard({ item, handleEdit, handleDelete }) {
       }
       <Image
         className={styles.foodImg}
-        src={''}
+        src={item.image}
         alt="img-card"
         width={100}
         height={100}
