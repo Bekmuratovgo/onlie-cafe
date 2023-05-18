@@ -12,9 +12,11 @@ import Header from '@/components/Header/Header';
 import styles from '../styles/home.module.scss'
 import { v4 as uuidv4 } from 'uuid';
 import EditModal from '@/components/EditModal/EditModal';
+import PhoneModal from '@/components/Phonemodal/Phonemodal';
 
 export default function Home() {
   const [isOpenBasket, setIsOpenBasket] = useState(false);
+  const [isOpenPhone, setIsOpenPhone] = useState(false);
   const dispatch = useDispatch();
   const { menu, toggleEditModal, basket } = useSelector((state) => state.food);
   const id = uuidv4();
@@ -26,10 +28,18 @@ export default function Home() {
   const handleCloseBasket = () => {
     setIsOpenBasket(false)
   }
+  const handleOpenPhonemodal = () => {
+    setIsOpenPhone(true)
+  }
+  const handleClosePhonemodal = () => {
+    setIsOpenPhone(false)
+  }
+
   useEffect(() => {
     dispatch(getAllMenu());
     dispatch(isTokenRefresh());
   }, [])
+  console.log(menu, 'menu');
 
   return (
     <div className={styles.home}>
@@ -47,15 +57,21 @@ export default function Home() {
         <div className={styles.home_inner}>
           <Elements />
         </div>
+        <div className={styles.home_inner}>
+          <Menu data={menu} />
+        </div>
         <div className={styles.home_inner_box_shadow}>
           <AboutUs />
         </div>
         <div className={styles.home_inner}>
-          <Menu data={menu} />
-        </div>
-        <div className={styles.home_inner}>
           <Deliver />
         </div>
+      </div>
+
+      <PhoneModal handleClosePhonemodal={handleClosePhonemodal} isOpen={isOpenPhone} />
+
+      <div className={styles.call} onClick={handleOpenPhonemodal}>
+        <i class={`${styles.Phone} ${styles.isAnimating}`}></i>
       </div>
       <Footer />
     </div>

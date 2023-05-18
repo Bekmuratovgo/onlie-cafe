@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .elements_inner {
   display: flex;
@@ -16,7 +17,7 @@
 }
 .elements_inner_right {
   margin: 0 10px;
-  border-bottom: 1px solid #7CC832;
+  border-bottom: 1px solid #0B2F25;
 }
 .elements_inner_right h4 {
   text-align: center;
@@ -43,5 +44,17 @@
   }
   .elements_inner_left img {
     width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .elements_inner img {
+    width: 80%;
+    height: 80%;
+  }
+  .elements_inner h4 {
+    font-size: 13px;
+  }
+  .elements_inner p {
+    font-size: 14px;
   }
 }

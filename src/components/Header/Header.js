@@ -6,8 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from "react-redux";
 import Notification from "../Notification/Notification.js";
 import Image from "next/image.js";
-import basketIcon from '../../assets/img/basket.png'
+import basketIcon from '../../assets/img/basket.jsx'
 import { useRouter } from "next/router.js";
+import BasketIcon from "../../assets/img/basket.jsx";
 
 export default function Header({ handleOpenBasket, disabled, anotherPage }) {
   const [isActive, setIsActive] = useState(false);
@@ -59,8 +60,8 @@ export default function Header({ handleOpenBasket, disabled, anotherPage }) {
       <Navbar id={id + 'nav'} className={styles.header_nav}>
         <Navbar.Brand>
           <Navbar.Toggle className={styles.test} aria-label="toggle navigation" />
-          <Text style={{margin: '0 0 0 20px'}}>
-            ACME
+          <Text style={{margin: '0 0 0 20px', fontFamily: 'fangsong'}}>
+            Oligarch
           </Text>
         </Navbar.Brand>
         <Navbar.Content enableCursorHighlight hideIn="xs" variant="underline">
@@ -80,15 +81,16 @@ export default function Header({ handleOpenBasket, disabled, anotherPage }) {
         </Navbar.Content>
         <Navbar.Content>
           <Navbar.Item>
-            <Link href="tel:+996555544554" style={{color: 'black'}}>
-              + 996(555)56-54-45
+            <Link href="tel:+996755551707" style={{color: 'black'}}>
+              +996 (755) 551-707
             </Link>
           </Navbar.Item>
           <div color="inherit" style={{cursor: 'pointer', position: 'relative'}}
             onClick={() => !disabled && handleOpenBasket('basket')}
           >
             <Notification isOpen={isAddedToBasket} title={"Успешно добавлено!"} duration={1500} />
-            <Image className={styles.iconBasket} src={basketIcon} alt="" />
+            {/* <Image className={styles.iconBasket} src={basketIcon} alt="icon-header" /> */}
+            <BasketIcon />
             <span className={styles.basketCount}>{basket?.length}</span>
           </div>
         </Navbar.Content>

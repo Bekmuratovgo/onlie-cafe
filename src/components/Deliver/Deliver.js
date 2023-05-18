@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import deliverImg from '../../assets/img/deliver.jpg';
-import clock from '../../assets/img/deliverClock.svg';
+import deliverImg from '../../assets/img/home-delivery.jpg';
+import clock from '../../assets/img/time.png';
+import calendar from '../../assets/img/calendar.png';
 import styles from './Deliver.module.scss';
 import Title from '@/kid/title/title';
 import Link from 'next/link';
@@ -14,7 +15,7 @@ export default function Deliver() {
         <div className={styles.deliver_left}>
           <Image
             src={deliverImg}
-            alt="img"
+            alt="img-delivery"
             width={'100%'}
             height={'100%'}
           />
@@ -24,22 +25,22 @@ export default function Deliver() {
             <div className={styles.deliver_right_inner_card_block}>
               <Image
                 src={clock}
-                alt="img"
-                width={100}
-                height={80}
+                alt="img-delivery-2"
+                width={70}
+                height={70}
               />
               <div className={styles.time_work}>c 11:00 до 23:00</div>
               <div>Время доставки может меняться в зависимости от загруженности ресторана.</div>
             </div>
             <div className={styles.deliver_right_inner_card_block}>
               <Image
-                src={clock}
-                alt="img"
-                width={100}
-                height={80}
+                src={calendar}
+                alt="img-delivery-3"
+                width={70}
+                height={70}
               />
-              <div className={styles.time_work}>c 11:00 до 23:00</div>
-              <div>Время доставки может меняться в зависимости от загруженности ресторана.</div>
+              <div className={styles.time_work}>c ПН до ВС</div>
+              <div>Чайхана открыта ежедневно с понедельника по воскресенье.</div>
             </div>
           </div>
           <div className={styles.deliver_right_inner_btns}>

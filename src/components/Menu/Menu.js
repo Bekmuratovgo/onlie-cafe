@@ -54,7 +54,7 @@ export default function Menu({ data }) {
       { token?.access || token?.refresh ?
         <div>
           <h4 style={{ margin: '0 0 10px' }}>Добавить категорию</h4>
-          <Image onClick={handleCreateCategory} className={styles.addIcon} src={createImg} alt="create-icon" />
+          <Image onClick={handleCreateCategory} className={styles.addIcon} src={createImg} alt="create-category-icon" />
         </div>
         : ''
       }
@@ -64,7 +64,7 @@ export default function Menu({ data }) {
       />
       {token?.access || token?.refresh ? <div>
         <h4 style={{ margin: '0 0 10px' }}>Добавить блюдо</h4>
-        <Image onClick={handleCreateMeal} className={styles.addIcon} src={createImg} alt="create-icon" />
+        <Image onClick={handleCreateMeal} className={styles.addIcon} src={createImg} alt="create-menu-icon" />
       </div> : ''}
 
       <div style={{ width: '100%', textAlign: 'center', marginTop: '50px' }}>

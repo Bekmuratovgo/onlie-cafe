@@ -4,20 +4,20 @@ export default function Footer() {
 
   const footerItems = [
     {
-      title: 'Суши Весла',
-      description: 'Суши Вёсла» — профессиональная служба доставки японских и азиатских блюд в Бишкеке и в Оше.'
+      title: 'Олигарх',
+      description: 'Доставка вкуснейших блюд прямо к вашей двери!'
     },
     {
-      title: 'Магазин',
-      description: `Меню О нас Доставка и оплата Контакты`
+      title: 'Лучшая чайхана в городе',
+      description: `Спасибо, что выбираете нас - ждем Вас вновь в чайхане`
     },
     {
-      title: 'Суши Весла',
-      description: `Политика конфиденциальности Мой аккаунт Корзина`
+      title: 'Доставка',
+      description: `Мы предлагаем доставку вкуснейших вкуснейших блюд прямо к вашей двери!`
     },
     {
-      title: '0550 32-32-15',
-      description: ' Г. Бишкек, Кыргызстан Манаса 8/12 (Боконбаева)',
+      title: '+996 755 551 707',
+      description: ' Г. Ош, микрарайон Анар, 1В/2',
       isNumber: true
     },
   ]
@@ -30,7 +30,7 @@ export default function Footer() {
         >
           {item.isNumber ? 
             <h3>
-              <Link style={{color: 'white', textDecoration: 'none'}} href={'tel:' + item.title}>{item.title}</Link>
+              <Link style={{color: 'white', textDecoration: 'none'}} href={'tel:+996755551707'}>{item.title}</Link>
             </h3>
             : 
             <h3>{item.title}</h3>

@@ -51,7 +51,7 @@
   margin: 10px;
   border: none;
   padding: 15px 30px;
-  background: #7CC832;
+  background: #154f40;
   color: white;
   border-radius: 25px;
   font-size: 20px;
@@ -59,7 +59,8 @@
 }
 
 .deliver_right_inner_btns button:hover {
-  transform: scale(1.2);
+  background: #219653;
+  transition: 0.5s;
 }
 
 
@@ -72,6 +73,14 @@
   .deliver_right_inner_btns button {
     padding: 12px 25px;
     font-size: 16px;
+  }
+  .deliver_left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .deliver_right_inner_card_block {
+    display: flex;
+    justify-content: start;
   }
 }
 

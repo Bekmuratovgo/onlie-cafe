@@ -1,26 +1,26 @@
 import Image from 'next/image'
 import React from 'react'
-import clock from '../../assets/img/clock.svg';
-import food from '../../assets/img/sushi.svg';
-import shop from '../../assets/img/shop.svg';
 import styles from './Elements.module.scss'
+import quick from '../../assets/img/fast.png';
+import foodServing from '../../assets/img/foodServing.png';
+import delivery from '../../assets/img/delivery.png';
 
 export default function Elements() {
   const elements = [
     {
       name: 'БЫСТРО',
-      description: 'Оперативная и недорогая доставка суши в любой уголок Бишкека и Оша.',
-      img: clock
+      description: 'Быстрый и удобный сервис доставки - надежный путь получить заказ вовремя и без лишних хлопот.',
+      img: quick
     },
     {
       name: 'ВКУСНО',
-      description: 'Оперативная и недорогая доставка суши в любой уголок Бишкека и Оша.',
-      img: food
+      description: 'Отведайте наши блюда и ощутите настоящее наслаждение - только у нас вкусно и качественно!',
+      img: foodServing
     },
     {
       name: 'БЕСПЛАТНАЯ ДОСТАВКА',
-      description: 'Оперативная и недорогая доставка суши в любой уголок Бишкека и Оша.',
-      img: shop
+      description: 'Наши клиенты заслуживают лучшего - бесплатная доставка при заказе от определенной суммы в нашем сервисе',
+      img: delivery
     },
   ]
   return (
@@ -30,7 +30,7 @@ export default function Elements() {
           <div className={styles.elements_inner_left}>
             <Image
               src={item.img}
-              alt="img"
+              alt="img-element"
               width={100}
               height={100}
             />

@@ -31,7 +31,6 @@ export default function Categories({ handleClickCallback, handleDelete }) {
           <Button
             className={`${styles.category_btn} ${active === item.name ? styles.activeCayegory : ''}`}
             auto rounded bordered
-            color="error"
             onPress={() => clickActive(item)}
           >
             {item.name}

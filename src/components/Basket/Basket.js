@@ -61,7 +61,7 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
       <Modal.Body style={{ overflowY: 'scroll' }}>
         {cards && cards.length ? cards?.map((item, index) => (
           <div className={styles.card} key={index}>
-            <Image className={styles.card_img} width={100} height={100} src={item.image} alt="" />
+            <Image className={styles.card_img} width={100} height={100} src={item.image} alt="basket" />
             <div className={styles.card_wrapper_inner}>
               <div>
                 <h3 className={styles.card_title}>{item.title}</h3>
@@ -77,7 +77,7 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
                 </div>
               </div>
               <button>
-                <Image width={20} src={close} alt="" />
+                <Image width={20} src={close} alt="close" />
               </button>
             </div>
           </div>
