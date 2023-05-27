@@ -14,11 +14,8 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
     router.push('/order');
     localStorage.setItem('basket', JSON.stringify(cards))
   }
-  console.log(basket, 'basket');
-  console.log(cards, 'cards');
 
   const summOfOrder = (basket) => {
-    console.log(basket, 'basket');
     if (basket) {
       const res = basket.reduce((acc, product) => acc + (product.price * Number(product.count)), 0);
       setSumm(res)
@@ -36,7 +33,6 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
         return item
       }
     })
-    console.log('call');
     setCards(newArr);
   }
   const close = () => {

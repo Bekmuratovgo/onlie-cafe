@@ -23,7 +23,6 @@ export default function Header({ handleOpenBasket, disabled, anotherPage }) {
       setIsActive((prev) => index);
     }
     if (anotherPage) {
-      console.log('HERE-LOG');
       setIsActive((prev) => index);
       router.push('/#' + link)
     }

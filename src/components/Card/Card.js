@@ -6,14 +6,15 @@ import Minus from '@/assets/img/minus';
 import Plus from '@/assets/img/plus';
 import editIcon from '@/assets/img/editBlack.png';
 import removeIcon from '@/assets/img/trashBlack.png';
+import { useState } from 'react';
 
 export default function FoodCard({ item, handleEdit, handleDelete }) {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.food);
+  const [cardsInBasket, setCardsInBasket] = useState(JSON.parse(localStorage.getItem('basket' || [])) || []);
 
   const handleAddToBasket = (product, type) => {
     let basket = JSON.parse(localStorage.getItem('basket' || [])) || [];
-
     const card = basket.find((card) => card.id === product.id);
 
     if (card && type === 'plus') {
@@ -45,9 +46,19 @@ export default function FoodCard({ item, handleEdit, handleDelete }) {
       }
     }
     
-    console.log(basket, 'BASKET--');
     localStorage.setItem('basket', JSON.stringify(basket))
+    setCardsInBasket(basket)
     dispatch(addToBasket(basket))
+    countFunc(product);
+  }
+  function countFunc (item) {
+    let res = 0
+    cardsInBasket.forEach((prod) => {
+      if (prod.id === item.id) {
+        res = prod.count
+      }
+    })
+    return res
   }
 
   return (
@@ -77,7 +88,10 @@ export default function FoodCard({ item, handleEdit, handleDelete }) {
           <div className={styles.minus} onClick={() => handleAddToBasket(item, 'minus')}>
             <Minus />
           </div>
-          <input value={0} readOnly className={styles.input} />
+          <input 
+            value={countFunc(item) || 0} 
+            readOnly className={styles.input} 
+          />
           <div className={styles.minus} onClick={() => handleAddToBasket(item, 'plus')}>
             <Plus />
           </div>

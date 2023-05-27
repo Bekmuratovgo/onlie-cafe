@@ -28,7 +28,6 @@ export default function EditModal({ data, isOpen, handleClose }) {
   }
 
   const handleChange = (e, type) => {
-    console.log(e.target.value, 'VAL');
     if (type === 'category') {
       let data = {
         ...card,
@@ -55,12 +54,10 @@ export default function EditModal({ data, isOpen, handleClose }) {
     if (data.isCreateCategory) {
       dispatch(createCategory(category))
       handleClose(false)
-      console.log('click-2');
     } else if (data.isCreateMeal) {
       dispatch(createMeal(card, categories[0]))
       handleClose(false)
     } else {
-      console.log('click-4');
       dispatch(editMeal(card))
       handleClose(false)
     }

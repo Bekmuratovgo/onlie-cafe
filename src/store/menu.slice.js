@@ -66,7 +66,6 @@ export const isTokenRefresh = () => async (dispatch) => {
     }
   } else {
     localStorage.removeItem('token');
-    localStorage.removeItem('basket');
   }
 }
 
@@ -229,10 +228,8 @@ export const createOrder = (item) => async (dispatch) => {
     const text = newData.map((item) => {
       return item.count + ' ' + item.title
     })
-    console.log(res, 'res-CHECK');
     const staticText = `Здравствуйте! Мой номер телефона ${res.data.client_phone} .Я заказал `
     const decode = `https://wa.me/${initialState.adminNumber}?text=` + staticText + text;
-    console.log(encodeURI(decode), 'decode');
     await dispatch(setOrder(decode))
   } catch (error) {
   }

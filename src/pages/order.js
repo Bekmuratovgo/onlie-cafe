@@ -28,7 +28,6 @@ export default function Order() {
   }
   const handleClick = () => {
     let validate = Object.values(orderCheck).length
-    console.log(orderCheck, 'orderCheck');
     if (validate < 4) {
       setValidate(true)
     } else {
