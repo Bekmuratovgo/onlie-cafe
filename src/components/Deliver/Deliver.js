@@ -29,7 +29,7 @@ export default function Deliver() {
                 width={70}
                 height={70}
               />
-              <div className={styles.time_work}>c 11:00 до 23:00</div>
+              <div className={styles.time_work}>c 11:00 по 23:00</div>
               <div>Время доставки может меняться в зависимости от загруженности ресторана.</div>
             </div>
             <div className={styles.deliver_right_inner_card_block}>
@@ -39,7 +39,7 @@ export default function Deliver() {
                 width={70}
                 height={70}
               />
-              <div className={styles.time_work}>c ПН до ВС</div>
+              <div className={styles.time_work}>c ПН по ВС</div>
               <div>Чайхана открыта ежедневно с понедельника по воскресенье.</div>
             </div>
           </div>

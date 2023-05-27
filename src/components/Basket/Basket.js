@@ -3,19 +3,25 @@ import { Modal, Button, Text } from "@nextui-org/react";
 import styles from './Basket.module.scss';
 import Image from "next/image";
 import { useRouter } from "next/router";
+import ImgClose from '../../assets/img/close.png'
 
 export default function Basket({ visible, handleCloseBasket, basket }) {
   const [cards, setCards] = useState(basket);
+  const [summ, setSumm] = useState();
   const router = useRouter();
 
   const order = () => {
     router.push('/order');
     localStorage.setItem('basket', JSON.stringify(cards))
   }
+  console.log(basket, 'basket');
+  console.log(cards, 'cards');
 
   const summOfOrder = (basket) => {
+    console.log(basket, 'basket');
     if (basket) {
-      return basket.reduce((acc, product) => acc + product.price, 0);
+      const res = basket.reduce((acc, product) => acc + (product.price * Number(product.count)), 0);
+      setSumm(res)
     }
   }
 
@@ -30,7 +36,7 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
         return item
       }
     })
-
+    console.log('call');
     setCards(newArr);
   }
   const close = () => {
@@ -41,6 +47,10 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
   useEffect(() => {
     setCards(basket)
   }, [basket])
+  
+  useEffect(() => {
+    summOfOrder(cards)
+  }, [cards])
 
   return (
     <Modal
@@ -75,7 +85,7 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
                 </div>
               </div>
               <button>
-                <Image width={20} src={close} alt="close" />
+                <Image width={20} src={ImgClose} alt="close" />
               </button>
             </div>
           </div>
@@ -87,7 +97,7 @@ export default function Basket({ visible, handleCloseBasket, basket }) {
         }
       </Modal.Body>
       <Modal.Footer style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <h3>Сумма заказа: <span style={{ color: 'red' }}>{summOfOrder(basket)} сом</span></h3>
+        <h3>Сумма заказа: <span style={{ color: 'red' }}>{summ} сом</span></h3>
         <Button className={styles} auto flat onPress={() => order()}>
           Оформить
         </Button>

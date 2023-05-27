@@ -71,7 +71,7 @@ export default function Home() {
       <PhoneModal handleClosePhonemodal={handleClosePhonemodal} isOpen={isOpenPhone} />
 
       <div className={styles.call} onClick={handleOpenPhonemodal}>
-        <i class={`${styles.Phone} ${styles.isAnimating}`}></i>
+        <i className={`${styles.Phone} ${styles.isAnimating}`}></i>
       </div>
       <Footer />
     </div>
