@@ -28,7 +28,7 @@ export default function Order() {
   }
   const handleClick = () => {
     let validate = Object.values(orderCheck).length
-    if (validate < 4) {
+    if (validate < 3) {
       setValidate(true)
     } else {
       setValidate(false)
@@ -65,12 +65,12 @@ export default function Order() {
                 </h5>
                 <input onChange={(e) => handleChange(e)} name='client_name' placeholder='Имя' />
               </div>
-              <div className={styles.block_input}>
+              {/* <div className={styles.block_input}>
                 <h5>
                   Почта
                 </h5>
                 <input onChange={(e) => handleChange(e)} name='email' placeholder='Почта' />
-              </div>
+              </div> */}
               <div className={styles.block_input}>
                 <h5>
                   Телефон

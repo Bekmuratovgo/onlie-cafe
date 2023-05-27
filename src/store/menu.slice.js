@@ -215,6 +215,7 @@ export const createOrder = (item) => async (dispatch) => {
   })
   const data = {
     ...item,
+    email: 'test@gmail.com',
     ordering_meals: basket_ids
   }
   try {
@@ -228,7 +229,7 @@ export const createOrder = (item) => async (dispatch) => {
     const text = newData.map((item) => {
       return item.count + ' ' + item.title
     })
-    const staticText = `Здравствуйте! Мой номер телефона ${res.data.client_phone} .Я заказал `
+    const staticText = `Здравствуйте! Мой номер телефона ${res.data.client_phone}. Мой адрес ${res.data.client_address} .Я заказал `
     const decode = `https://wa.me/${initialState.adminNumber}?text=` + staticText + text;
     await dispatch(setOrder(decode))
   } catch (error) {
