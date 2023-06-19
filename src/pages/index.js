@@ -40,7 +40,7 @@ export default function Home() {
     dispatch(getAllMenu());
     dispatch(isTokenRefresh());
   }, [])
-  console.log('changes v.1.5');
+  console.log('changes v.1.6');
   return (
     <div className={styles.home}>
       <Header id={'header' + id} handleOpenBasket={handleOpenBasket} />

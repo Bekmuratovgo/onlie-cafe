@@ -16,7 +16,7 @@ class MyDocument extends Document {
         <Head>
           {CssBaseline.flush()}
           <link rel='icon' href="vercel.svg"/>
-          <title>Онлайн заказ | Доставка еды</title>
+          <title>Чайхана Олигарх - Доставка еды</title>
         </Head>
         <body>
           <Main />
