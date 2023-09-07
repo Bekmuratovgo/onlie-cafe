@@ -13,7 +13,7 @@ const initialState = {
   basket: [],
   isAddedToBasket: false,
   order: null,
-  adminNumber: '996755551707'
+  adminNumber: '996509313243'
 }
 
 export const menuSlice = createSlice({
